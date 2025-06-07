@@ -1,22 +1,57 @@
+
 using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    public int value = 1; // Скільки дає монетка
-    public static int totalCoins = 0; // Загальний лічильник
-
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            // Збільшуємо лічильник
-            totalCoins += value;
+            PlayerMovement player = other.GetComponent<PlayerMovement>();
 
-            // Виводимо в консоль (можна пізніше підключити UI)
-            Debug.Log("Монетка підібрана! Загалом: " + totalCoins);
+            if (player != null)
+            {
+                player.coinsCollected++;
+                Debug.Log("Coins collected: " + player.coinsCollected);
 
-            // Знищити монетку
-            Destroy(gameObject);
+                if (player.coinsCollected >= player.coinsToWin)
+                {
+                    Debug.Log("YOU WIN!");
+                }
+
+                Destroy(gameObject);
+            }
         }
     }
 }
+
+
+public class CoinCounter : MonoBehaviour
+{
+    public GameObject winScreen; // Сюди перетягни твій WinScreen Image у інспекторі
+    private int coinsCollected = 0;
+    private int coinsToWin = 10;
+
+    void Start()
+    {
+        winScreen.SetActive(false); // Ховаємо на початку
+    }
+
+    public void CollectCoin()
+    {
+        coinsCollected++;
+        Debug.Log("Coins collected: " + coinsCollected);
+
+        if (coinsCollected >= coinsToWin)
+        {
+            Debug.Log("You Win");
+            ShowWinScreen();
+        }
+    }
+
+    void ShowWinScreen()
+    {
+        winScreen.SetActive(true);
+    }
+}
+

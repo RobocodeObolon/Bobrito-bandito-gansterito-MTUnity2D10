@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private float moveV, moveH;
     public float moveSpeed = 1f;
+    public int coinsCollected;
+    public int coinsToWin;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,3 +26,4 @@ public class PlayerMovement : MonoBehaviour
         FindObjectOfType<PlayerAnimation>().SetDirection(direction);
     }
 }
+
