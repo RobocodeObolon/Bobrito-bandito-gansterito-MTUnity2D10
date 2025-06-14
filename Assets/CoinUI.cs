@@ -8,6 +8,6 @@ public class CoinUI : MonoBehaviour
     void Update()
     {
         // Постійно оновлює текст з лічильника
-        coinText.text = "Монети: " + GetComponent PlayerMovement coinsColected;
+        coinText.text = "Монети: " + GetComponent<PlayerMovement>().coinsCollected;
     }
 }

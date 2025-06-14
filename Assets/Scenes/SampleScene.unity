@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 136829845}
   - component: {fileID: 136829844}
   m_Layer: 5
-  m_Name: WinScreen
+  m_Name: winPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136829842}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 176013123}
   - component: {fileID: 176013122}
   - component: {fileID: 176013121}
+  - component: {fileID: 176013125}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -232,7 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   coinsCollected: 0
-  coinsToWin: 0
+  coinsToWin: 10
 --- !u!70 &176013122
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -286,6 +287,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &176013125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176013120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98e7b5a29f8a964dbd9326ca5f5702b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 978871847}
 --- !u!1 &189578838
 GameObject:
   m_ObjectHideFlags: 0
@@ -5587,7 +5601,6 @@ GameObject:
   - component: {fileID: 884106045}
   - component: {fileID: 884106044}
   - component: {fileID: 884106043}
-  - component: {fileID: 884106042}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5595,19 +5608,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &884106042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 884106041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c98e7b5a29f8a964dbd9326ca5f5702b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinText: {fileID: 978871847}
 --- !u!114 &884106043
 MonoBehaviour:
   m_ObjectHideFlags: 0

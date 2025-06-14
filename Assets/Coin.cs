@@ -3,6 +3,12 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
+    private GameObject winPanel; // це об'Їкт, €кий треба ув≥мкнути (наприклад, в≥кно перемоги)
+     void Start()
+    {
+        winPanel = GameObject.Find("winPanel");
+        winPanel.SetActive(false);
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -16,42 +22,12 @@ public class Coin : MonoBehaviour
 
                 if (player.coinsCollected >= player.coinsToWin)
                 {
-                    Debug.Log("YOU WIN!");
+                    winPanel.SetActive(true);
                 }
 
                 Destroy(gameObject);
             }
         }
-    }
-}
-
-
-public class CoinCounter : MonoBehaviour
-{
-    public GameObject winScreen; // —юди перет€гни тв≥й WinScreen Image у ≥нспектор≥
-    private int coinsCollected = 0;
-    private int coinsToWin = 10;
-
-    void Start()
-    {
-        winScreen.SetActive(false); // ’оваЇмо на початку
-    }
-
-    public void CollectCoin()
-    {
-        coinsCollected++;
-        Debug.Log("Coins collected: " + coinsCollected);
-
-        if (coinsCollected >= coinsToWin)
-        {
-            Debug.Log("You Win");
-            ShowWinScreen();
-        }
-    }
-
-    void ShowWinScreen()
-    {
-        winScreen.SetActive(true);
     }
 }
 
