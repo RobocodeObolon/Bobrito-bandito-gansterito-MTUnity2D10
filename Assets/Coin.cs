@@ -1,22 +1,26 @@
+
 using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    public int value = 1; // Скільки дає монетка
-    public static int totalCoins = 0; // Загальний лічильник
-
-    private void OnTriggerEnter2D(Collider2D other)
+     
+    
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            // Збільшуємо лічильник
-            totalCoins += value;
+            PlayerMovement player = other.GetComponent<PlayerMovement>();
 
-            // Виводимо в консоль (можна пізніше підключити UI)
-            Debug.Log("Монетка підібрана! Загалом: " + totalCoins);
+            if (player != null)
+            {
+                player.coinsCollected++;
+                Debug.Log("Coins collected: " + player.coinsCollected);
 
-            // Знищити монетку
-            Destroy(gameObject);
+               
+
+                Destroy(gameObject);
+            }
         }
     }
 }
+
