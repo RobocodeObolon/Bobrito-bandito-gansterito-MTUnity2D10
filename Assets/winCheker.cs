@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class winCheker : MonoBehaviour
 {
-     private GameObject winPanel; 
-     public PlayerMovement player;
+    private GameObject winPanel;
+    public PlayerMovement player;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,12 +15,13 @@ public class winCheker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
-        
-    
-         if (player.coinsCollected >= player.coinsToWin)
-                {
-                    winPanel.SetActive(true);
-                }
+
+
+
+        if (player.coinsCollected >= player.coinsToWin)
+        {
+            winPanel.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 }

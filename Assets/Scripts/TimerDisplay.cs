@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 public class TimerDisplay : MonoBehaviour
 {
     public float timeLeft = 20f;
-    public Text timerText; 
+    public TextMeshProUGUI timerText;
+    public GameObject losePanel;
 
+    void Start()
+    {
+        losePanel = GameObject.Find("losePanel");
+        losePanel.SetActive(false);
+    }
     void Update()
     {
         if (timeLeft > 0)
@@ -16,6 +22,7 @@ public class TimerDisplay : MonoBehaviour
         }
         else
         {
+            losePanel.SetActive(true);
             timerText.text = "TIME'S UP!";
             Time.timeScale = 0f;
         }
